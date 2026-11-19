@@ -104,6 +104,9 @@
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
+% Underlined link text so readers can tell it is clickable
+\newcommand{\ghlink}[1]{\href{#1}{\underline{GitHub}}}
+
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
@@ -119,8 +122,8 @@
 
 \begin{center}
     \textbf{\Huge \scshape James Villanueva} \\ \vspace{2pt}
-    \small (310) 720-3956 $|$ \href{mailto:jvillan314@gmail.com}{jvillan314@gmail.com} $|$ \href{https://www.linkedin.com/in/jamesuvillanueva/}{LinkedIn} $|$ \href{https://github.com/jamesvillanueva-dev}{GitHub}
-    $|$ San Diego, California
+    \small (310) 720-3956 $|$ \href{mailto:jvillan314@gmail.com}{\underline{jvillan314@gmail.com}} $|$ \href{https://www.linkedin.com/in/jamesuvillanueva/}{\underline{LinkedIn}} $|$ \href{https://github.com/jamesvillanueva-dev}{\underline{GitHub}}
+    $|$ San Diego, CA
 \end{center}
 
 %-----------EDUCATION-----------
@@ -129,7 +132,7 @@
 
 \resumeEducationSubheading
   {University of California, San Diego}
-  {Sep. 2024 -- June 2028}
+  {Sep. 2024 -- Jun. 2028}
   {Bachelor of Science in Computer Science}
   {La Jolla, CA}
   {3.6}
@@ -150,22 +153,26 @@
 \resumeSubheading
   {Software Engineering Team Lead}
   {Mar. 2026 -- Jun. 2026}
-  {UCSD}
-  {California}
+  {WatchTower $|$ Course Project @ UCSD $|$ \ghlink{https://github.com/cse110-sp26-group09/Watchtower-Course-Project}}
+  {La Jolla, CA}
   \resumeItemListStart
-    \resumeItem{Led a team of 11 through full-cycle design and development of a custom software application, coordinating architecture decisions, sprint priorities, and feature planning.}
-    \resumeItem{Implemented application features, debugged issues during testing cycles, and collaborated with teammates to improve code quality and project consistency.}
-    \resumeItem{Led frontend development, including UI design, wireframing, pull request reviews, and team communication to keep implementation aligned with project goals.}
+    \resumeItem{Led a team of \textbf{11 engineers} to design and build WatchTower, an observability platform that shows web developers the errors users hit, page load times, slow routes, and user activity via a browser SDK and live dashboard.}
+    % TODO(Q3): add a result here if you have one (usability-test score, class ranking, demo feedback).
+    \resumeItem{Owned \textbf{frontend and UI/UX design}, from wireframes, user flows, and UI decision records to building the landing page, \textbf{Clerk}-authenticated login, and an early dashboard prototype in \textbf{JavaScript/HTML/CSS} that visualized errors, user activity, and performance metrics.}
+    % TODO(Q2): confirm you coordinated the SDK / ingestion API / database integration.
+    \resumeItem{Coordinated sprint priorities, architecture decisions, and pull request reviews to integrate the browser SDK, \textbf{Node.js} ingestion API, and \textbf{Supabase/PostgreSQL} into an end-to-end telemetry pipeline; resolved \textbf{CodeQL} security findings (DOM-based XSS, insecure randomness).}
   \resumeItemListEnd
 \resumeSubheading
-  {\href{https://github.com/jsnsnydr/ecm}{AI Conversation Simulation Research Assistant}}
+  {Undergraduate Research Assistant -- LLM Spoken Conversation Systems}
   {Mar. 2026 -- Present}
-  {NSF-Funded Research, PI Dr. Kristen Vaccaro}
-  {UCSD}
+  {UCSD $|$ Supervised by Dr. Kristen Vaccaro $|$ \ghlink{https://github.com/jsnsnydr/ecm}}
+  {La Jolla, CA}
   \resumeItemListStart
-    \resumeItem{Built automated evaluation infrastructure for a multi-agent classroom discussion simulator, including an LLM-as-judge pipeline and a HuggingFace transformer-based stance classifier to score agent conversations at scale.}
-    \resumeItem{Designed experimental stimuli and study scope, reviewing prior literature to select research questions and defining the agent persona/voice set used as a core experimental variable.}
-    \resumeItem{Developed evaluation metrics across turn-taking length, coherence, lexical diversity, stance, and persona consistency for a FastAPI/Next.js system modeling multi-agent conversation.}
+    % TODO(Q1, Q4): confirm you built the DeBERTa classifier; add judge accuracy / F1 and conversation count if you have them.
+    \resumeItem{Built an automated evaluation pipeline for LLM-generated spoken conversations, pairing a \textbf{DeBERTa-v3} Hugging Face stance classifier for turn-level PRO/CON labels with an \textbf{LLM-as-a-Judge} (OpenAI API) that rates stance agreement and convergence on a JSON rubric with anchored scales and sanity-check rules.}
+    % TODO(Q1, Q5): confirm which metrics you implemented; add how they were validated.
+    \resumeItem{Developed metric pipelines for coherence, lexical diversity, turn-taking, persona consistency, and \textbf{disfluency}, using LLM-based coherence scoring (\textbf{ECoh-4B}), statistical diversity measures (\textbf{MTLD}, MATTR, Yule's K), NLI-based persona checks, and regex detection of filled pauses and repetitions.}
+    \resumeItem{Curated a text-to-speech voice library and agent persona set as core experimental variables, and reviewed human conversational speech corpora and prior literature to scope research questions and support controlled comparisons between human--human and LLM-generated conversations.}
   \resumeItemListEnd
 
 
@@ -175,18 +182,22 @@
 %-----------PROJECTS-----------
 \section{Projects}
     \resumeSubHeadingListStart
+      % TODO(Q6): this repo is private, so the link 404s for recruiters.
       \resumeProjectHeading
-  {\textbf{\href{https://github.com/UCSDClubConnector/Frontend}{Club Connector}} $|$ \emph{TypeScript, React, Node.js, Next.js}}{January 2026 -- Present}
+  {\textbf{Club Connector} \ghlink{https://github.com/UCSDClubConnector/Frontend} $|$ \emph{TypeScript, React, TanStack Query, Vite}}{Jan. 2026 -- Present}
 \resumeItemListStart
-  \resumeItem{Developing a full-stack web application to help students discover and join campus organizations through a searchable, student-focused interface.}
-  \resumeItem{Implementing dynamic frontend components using Next.js and React while coordinating with teammates through Git-based workflows and code reviews.}
+  \resumeItem{Building a web app that helps UCSD students discover campus organizations, follow clubs, browse and save club events, and get suggested organizations based on their interests.}
+  \resumeItem{Built the personalized \textbf{For You} page, suggested-organization discovery, and recently viewed orgs as \textbf{React}/\textbf{TypeScript} components, using \textbf{TanStack Query} for server-state caching and cross-view cache invalidation so every page reflects a write immediately.}
+  % TODO(Q7): swap in user / club counts here if the app is live.
+  \resumeItem{Added undo toasts for saving events and following clubs, plus client-side throttling for spammed write buttons to prevent duplicate API requests; shipped \textbf{50 merged pull requests}.}
 \resumeItemListEnd
-      \resumeProjectHeading
-          {\textbf{\href{https://github.com/cse110-sp26-group09/Watchtower-Course-Project}{WatchTower}} $|$ \emph{JavaScript, Node.js, Supabase/Postgres, Clerk, Jest, Playwright}}{April 2026 -- June 2026}
-          \resumeItemListStart
-            \resumeItem{Engineered an observability tool in an 11-person team using Agile methodologies, Git-based version control, and structured code review processes.}
-            \resumeItem{Built a full-stack platform with a browser SDK, authenticated dashboard, backend event ingestion, and database-backed telemetry storage for application monitoring.}
-          \resumeItemListEnd
+      % WatchTower now lives under Experience (Team Lead). Uncomment to list it here too.
+      % \resumeProjectHeading
+      %     {\textbf{WatchTower} \ghlink{https://github.com/cse110-sp26-group09/Watchtower-Course-Project} $|$ \emph{JavaScript, Node.js, Supabase/Postgres, Clerk, Jest, Playwright}}{Apr. 2026 -- Jun. 2026}
+      %     \resumeItemListStart
+      %       \resumeItem{Engineered an observability tool in an 11-person team using Agile methodologies, Git-based version control, and structured code review processes.}
+      %       \resumeItem{Built a full-stack platform with a browser SDK, authenticated dashboard, backend event ingestion, and database-backed telemetry storage for application monitoring.}
+      %     \resumeItemListEnd
     \resumeSubHeadingListEnd
 
 \section{Certifications}
